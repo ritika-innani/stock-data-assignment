@@ -1,0 +1,22 @@
+{
+  "name": "scry-analytics-assignment",
+  "version": "1.0.0",
+  "description": "assignment",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/Server.js",
+    "build": "tsc && cp db/config.json dist/db/ && bash scripts/insert-data.sh"
+  },
+  "author": "Ritika",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.8",
+    "@types/mongodb": "^3.5.27",
+    "@types/node": "^14.11.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jw-paginate": "^1.0.4",
+    "mongodb": "^3.6.2"
+  }
+}

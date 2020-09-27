@@ -1,0 +1,56 @@
+<mat-card>
+  <mat-card-title>
+    <h1>Sensex Data</h1>
+  </mat-card-title>
+  <mat-card-content>
+    <div class="data-container">
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+        <!-- Date Column -->
+        <ng-container matColumnDef="Date">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+          <td mat-cell *matCellDef="let element"> {{element.Date | date: 'longDate'}} </td>
+        </ng-container>
+
+        <!-- Open Column -->
+        <ng-container matColumnDef="Open">
+          <th mat-header-cell *matHeaderCellDef> Open </th>
+          <td mat-cell *matCellDef="let element"> {{element.Open}} </td>
+        </ng-container>
+
+        <!-- Close Column -->
+        <ng-container matColumnDef="Close">
+          <th mat-header-cell *matHeaderCellDef> Close </th>
+          <td mat-cell *matCellDef="let element"> {{element.Close}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+  </mat-card-content>
+  <mat-card-footer>
+    <ul *ngIf="true" class="pagination">
+      <li class="page-item">
+        <button class="page-link"
+                [ngClass]="{disabled:currentPage === 1}"
+                mat-raised-button
+                (click) = "previous()">Previous</button>
+      </li>
+      <li class="page-item">
+        <button class="page-link"
+                mat-raised-button
+                (click)="next()">Next</button>
+      </li>
+      <li class="page-item">
+        <button mat-raised-button
+                (click)="openDialog()">Add Record</button>
+      </li>
+      <li class="page-item">
+        <button mat-raised-button
+                (click)="openBarDialog()">Generate Graph</button>
+      </li>
+    </ul>
+  </mat-card-footer>
+</mat-card>
+
